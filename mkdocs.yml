@@ -52,6 +52,9 @@ markdown_extensions:
 
 # Configuration
 theme:
+  favicon: mkdocs/images/favicon.png
+  icon:
+      logo: fontawesome/solid/feather-pointed
   custom_dir: publications/mkdocs
   name: 'material'
   language: 'ru'
