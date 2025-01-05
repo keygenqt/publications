@@ -1,4 +1,4 @@
-# Publication
+# Publications
 
 ### Subscribe and like!
 
@@ -7,7 +7,7 @@
 Добро пожаловать на репозиторий моих публикаций.
 Здесь можно найти статьи, материалы к ним и другую информацию относительно материалов размещаемых на [Boosty](https://boosty.to/keygenqt) и других ресурсах.
 
-![Mkdocs](publications/mkdocs/images/Mkdocs.png)
+[![Mkdocs](publications/mkdocs/images/Mkdocs.png)](https://publications.keygenqt.com/)
 ![Docker](publications/mkdocs/images/Docker.png)
 ![Obsidian](publications/mkdocs/images/Obsidian.png)
 ![Markdown](publications/mkdocs/images/Markdown.png)
