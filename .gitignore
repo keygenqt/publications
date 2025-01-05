@@ -1,3 +1,9 @@
+# Tools
 .obsidian
 .vscode
+
+# Docker
 .env
+
+# Mkdocs
+static
