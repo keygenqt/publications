@@ -1,0 +1,87 @@
+site_name: Publications
+site_url: https://publications.keygenqt.com
+site_description: Мои статьи и данные к ним.
+site_author: Vitaliy Zarubin
+
+repo_name: Aurora Toolbox GitHub
+repo_url: https://github.com/keygenqt/publications
+
+site_dir: static
+docs_dir: publications
+
+# Navigation
+nav:
+  - Home: index.md
+  - Articles:
+    - Articles: articles/index.md
+    - Hello Emulator!: 'articles/Hello Emulator/index.md'
+    - Знакомство с Aurora OS: 'articles/Знакомство с Aurora OS/index.md'
+    - Mission impossible, Aurora + M1: 'articles/Mission impossible, Aurora + M1/index.md'
+    - Философия в IT: 'articles/Философия в IT/index.md'
+    - Amazing Gif: 'articles/Amazing Gif/index.md'
+    - Каррирование в Kotlin: 'articles/Каррирование в Kotlin/index.md'
+    - Сложность: 'articles/Сложность/index.md'
+  - Boosty:
+    - Boosty: boosty/index.md
+    - Telegram Bot: 'boosty/Telegram Bot/index.md'
+    - OpenSearch: 'boosty/OpenSearch/index.md'
+    - Docker Compose: 'boosty/Docker Compose/index.md'
+    - Ktor Server: 'boosty/Ktor Server/index.md'
+    - Dart CLI: 'boosty/Dart CLI/index.md'
+
+# Assets
+extra_css:
+  - https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0
+  - mkdocs/extra.css
+
+# Extensions
+markdown_extensions:
+  - tables
+  - admonition
+  - attr_list
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+# Configuration
+theme:
+  custom_dir: publications/mkdocs
+  name: 'material'
+  language: 'ru'
+  features:
+    - toc.integrate
+    - content.action.edit
+    - content.code.annotate
+    - content.code.copy
+    - content.tooltips
+    - navigation.indexes
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono

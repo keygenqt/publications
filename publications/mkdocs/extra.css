@@ -1,0 +1,139 @@
+/* bg */
+body {
+    background-image: url(./images/pattern.png);
+}
+body[data-md-color-scheme="slate"] {
+    background-image: url(./images/pattern_dark.png);
+}
+
+/* hide edit */
+.md-typeset .md-content__button {
+    display: none;
+}
+
+/* header */
+.md-header {
+    max-width: 1459px;
+    margin: 0 auto;
+    width: 100%;
+}
+@media (max-width: 2000px) {
+    .md-header {
+        max-width: 1337px;
+    }
+}
+@media (max-width: 1600px) {
+    .md-header {
+        max-width: 1216px;
+    }
+}
+@media (max-width: 1220px) {
+    .md-header {
+        max-width: inherit;
+    }
+}
+.md-header,
+.md-tabs {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* footer */
+.md-footer {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.md-footer-meta {
+    background-color: transparent;
+}
+
+/* change sidebar */
+[dir=ltr] .md-sidebar__inner {
+    padding: 0;
+}
+
+.md-main__inner {
+    margin-top: 0;
+}
+
+.md-sidebar {
+    padding: 0;
+}
+
+.md-sidebar__scrollwrap {
+    margin: 0;
+    box-shadow: inset #7b7b7b0a -5px 0px 5px 0px;
+    padding: 30px 15px;
+    background: linear-gradient(90deg, #7b7b7b0a 0%, transparent 30%, transparent 100%);
+}
+
+.md-nav--lifted>.md-nav__list>.md-nav__item--active>.md-nav__link {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+@media (min-width: 1600px) {
+    .md-sidebar {
+        width: 350px;
+    }
+}
+@media (min-width: 1220px) {
+    .md-sidebar {
+        width: 320px;
+    }
+}
+
+/* main shadow content */
+.md-main {
+    box-shadow: #7b7b7b0a 5px 0px 5px 0px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    width: 97%;
+}
+.md-container {
+    max-width: 1459px;
+    margin: 0 auto;
+    width: 100%;
+    background: var(--md-default-bg-color);
+    margin-top: -6px;
+}
+@media (max-width: 2000px) {
+    .md-container {
+        max-width: 1337px;
+    }
+}
+@media (max-width: 1600px) {
+    .md-container {
+        max-width: 1216px;
+    }
+}
+@media (max-width: 1220px) {
+    .md-container {
+        max-width: inherit;
+    }
+}
+
+/* content page */
+.md-content {
+    padding: 30px 20px;
+}
+
+/* images */
+.md-content img {
+    border: 4px solid #4051b55c;
+    max-width: 100%;
+    border-radius: 8px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+img.twemoji,
+img[src="data/ccdd9d6d-234f-40a1-934c-bbc3e319778b.gif"] {
+    border: none;
+}
+
+/* code */
+.md-typeset pre>code {
+    border-radius: 8px;
+}
