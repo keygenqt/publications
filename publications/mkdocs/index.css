@@ -1,0 +1,37 @@
+/* single page */
+.md-main {
+    box-shadow: #7b7b7b0a 0px 0px 5px 5px
+}
+.md-content {
+    vertical-align: middle;
+}
+.md-sidebar {
+    display: none;
+}
+@media (max-width: 1220px) {
+    .md-sidebar {
+        display: block;
+    }
+}
+
+/* page */
+.Index {
+    text-align: center;
+}
+.Index p {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 24px;
+    margin-top: 70px;
+}
+.Index a {
+    white-space: nowrap;
+}
+.Index .twemoji.main-icon {
+    font-size: 200px;
+    color: #538777;
+    border: 7px solid #538777;
+    border-radius: 50%;
+}

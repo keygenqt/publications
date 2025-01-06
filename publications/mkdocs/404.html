@@ -1,30 +1,16 @@
 {% extends "main.html" %}
-<link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/error.css">
 
  <!-- Content -->
 {% block content %}
 
-<style>
-.md-sidebar__scrollwrap {
-    display: none;
-}
-.md-main__inner {
-    display: block;
-}
-.Icon {
-    font-size: 30px;
-    position: relative;
-    top: 5px;
-    color: red;
-    margin-right: 10px;
-}
-</style>
+<link rel="stylesheet" href="/mkdocs/error.css">
 
-<h2>
-    <span class="Icon material-symbols-outlined">Error</span>
-    Это не та страница, которую вы ищете.
-</h2>
-
+<div class="Error">
+    <!-- variant icon 2 -->
+    <span class="material-symbols-outlined">Error</span>
+    <p>
+        Странно, но такая страница не найдена.
+    </p>
+</div>
 
 {% endblock %}
