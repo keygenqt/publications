@@ -177,3 +177,9 @@ img[src="data/ccdd9d6d-234f-40a1-934c-bbc3e319778b.gif"] {
 .highlight:hover .md-clipboard {
     color: var(--md-code-fg-color);
 }
+
+/* other */
+.github-link {
+    float: right;
+    font-size: 14px;
+}
