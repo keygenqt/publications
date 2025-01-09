@@ -1,6 +1,6 @@
 # Telegram Bot. Простой, для сложных задач.
 
-> 01-01-2025 <span class="github-link">[Материалы к статье :material-github:](https://github.com/keygenqt/publications/tree/main/materials/ktor-bot-sample)</span>
+> 09-01-2025 <span class="github-link">[Материалы к статье :material-github:](https://github.com/keygenqt/publications/tree/main/materials/ktor-bot-sample)</span>
 
 В этой статье я расскажу, как создать Telegram бота. Научим его отвечать на вопросы, использовать меню и осуществлять рассылку уведомлений пользователям. Выберем инструменты для реализации. Познакомимся с некоторыми хитростями и советами при реализации, которые я нашел для себя при написании [Aurora Bot](https://aurora-cos.keygenqt.com/aurora-bot/). А сервер Ktor и база данных Postgres поможет нам организовать такую рассылку. Сделаем задел на создание в будущем Mini-App и на общее развитие бота.
 
