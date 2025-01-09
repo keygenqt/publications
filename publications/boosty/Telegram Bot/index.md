@@ -1,3 +1,0 @@
-# Telegram Bot
-
-Coming soon...

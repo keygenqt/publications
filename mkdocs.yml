@@ -23,11 +23,7 @@ nav:
     - Сложность: 'articles/Сложность/index.md'
   - Boosty:
     - Boosty: boosty/index.md
-    - Telegram Bot: 'boosty/Telegram Bot/index.md'
-    - OpenSearch: 'boosty/OpenSearch/index.md'
-    - Docker Compose: 'boosty/Docker Compose/index.md'
-    - Ktor Server: 'boosty/Ktor Server/index.md'
-    - Dart CLI: 'boosty/Dart CLI/index.md'
+    - Telegram Bot. Простой, сеньерский.: 'boosty/Telegram Bot. Простой, сеньерский./index.md'
 
 # Assets
 extra_css:
