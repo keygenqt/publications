@@ -87,16 +87,15 @@ body[data-md-color-scheme="slate"] {
 /* main shadow content */
 .md-main {
     box-shadow: #7b7b7b0a 5px 0px 5px 0px;
-    width: 100%;
+    width: 97%;
     margin: 0 auto;
     position: relative;
-    width: 97%;
+    background: var(--md-default-bg-color);
 }
 .md-container {
     max-width: 1459px;
     margin: 0 auto;
     width: 100%;
-    background: var(--md-default-bg-color);
     margin-top: -6px;
 }
 @media (max-width: 2000px) {
