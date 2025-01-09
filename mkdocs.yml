@@ -23,7 +23,7 @@ nav:
     - Сложность: 'articles/Сложность/index.md'
   - Boosty:
     - Boosty: boosty/index.md
-    - Telegram Bot. Простой, сеньерский.: 'boosty/Telegram Bot. Простой, сеньерский./index.md'
+    - Telegram Bot. Простой, для сложных задач.: 'boosty/Telegram Bot. Простой, для сложных задач./index.md'
 
 # Assets
 extra_css:
