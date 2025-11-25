@@ -8,7 +8,7 @@
 
 Вы переписывались в Telegram с кем-нибудь? Ну вот базовый бот это тоже самое - личка, в которой бот может реагировать на ваши запросы. Зашли в бота, ткнули `/start` и вы можете общаться с ботами, которые могут быть очень различными по функционалу. Когда вы подписываетесь на бота, он может получить ограниченные данные о вас через API Telegram и может обращаться к вам самостоятельно.
 
-Для общения с Telegram API используются библиотеки, удобные для языка, который вы выбрали для написания серверной части бота - она и будет отвечать на сообщения, присланные пользователем бота, и реагировать на различные события, такие как вызовы меню, переходы по диплинке, работа с Mini-App. 
+Для общения с Telegram API используются библиотеки, удобные для языка, который вы выбрали для написания серверной части бота - она и будет отвечать на сообщения, присланные пользователем бота, и реагировать на различные события, такие как вызовы меню, переходы по диплинке, работа с Mini-App.
 
 Бот - это участник Telegram сообщества: он может быть администратором канала, может общаться с пользователями и т.д. - но всему этому его нужно учить. Все обращения на сервер происходят в текстовом формате, что ответить на них решать вам.
 
@@ -70,19 +70,19 @@ psql
 
 `libs.versions.toml`
 ```toml
-[versions]  
-flyway-version = "11.1.0"  
-  
-[libraries]  
-flyway-core = { module = "org.flywaydb:flyway-core", version.ref = "flyway-version" }  
+[versions]
+flyway-version = "11.1.0"
+
+[libraries]
+flyway-core = { module = "org.flywaydb:flyway-core", version.ref = "flyway-version" }
 flyway-database-postgresql = { module = "org.flywaydb:flyway-database-postgresql", version.ref = "flyway-version" }
 ```
 
 `build.gradle.kts`
 ```kotlin
-dependencies {   
-    implementation(libs.flyway.core)  
-    implementation(libs.flyway.database.postgresql) 
+dependencies {
+    implementation(libs.flyway.core)
+    implementation(libs.flyway.database.postgresql)
 }
 ```
 
@@ -146,12 +146,12 @@ class UserService(private val database: Database) {
 Все библиотеки подключены, Exposed готов, подготовим миграции. Для этого мы просто создаем раздел `migration`и добавляем Kotlin класс, наследуясь от `BaseJavaMigration`:
 
 ```kotlin
-class V0001__Create_Users : BaseJavaMigration() {  
-    override fun migrate(context: Context?) {  
-        transaction {  
-            SchemaUtils.create(Users)  
-        }  
-    }  
+class V0001__Create_Users : BaseJavaMigration() {
+    override fun migrate(context: Context?) {
+        transaction {
+            SchemaUtils.create(Users)
+        }
+    }
 }
 ```
 
@@ -163,44 +163,44 @@ class V0001__Create_Users : BaseJavaMigration() {
 
 `Databases.kt`
 ```kotlin
-fun Application.configureDatabases() {  
-    // Get data from config  
-    val url = environment.config.property("postgres.url").getString()  
-    val user = environment.config.property("postgres.user").getString()  
-    val password = environment.config.property("postgres.password").getString()  
-    // Connect to db with migrations  
-    val database = Database.connectWithFlyway(  
-        url = url,  
-        user = user,  
-        password = password,  
-        migration = "com/example/migration"  
-    ) ?: throw RuntimeException("Error connect to DB!")  
-    // Init service user  
-    val userService = UserService(database)  
-}  
-  
-private fun Database.Companion.connectWithFlyway(  
-    url: String,  
-    user: String,  
-    password: String,  
-    migration: String  
-): Database? {  
-    return try {  
-        val database = connect(  
-            url = url,  
-            user = user,  
-            password = password,  
-        )  
-        val flyway = Flyway.configure()  
-            .locations(migration)  
-            .dataSource(url, user, password)  
-            .load()  
-        flyway.info()  
-        flyway.migrate()  
-        database  
-    } catch (e: Exception) {  
-        null  
-    }  
+fun Application.configureDatabases() {
+    // Get data from config
+    val url = environment.config.property("postgres.url").getString()
+    val user = environment.config.property("postgres.user").getString()
+    val password = environment.config.property("postgres.password").getString()
+    // Connect to db with migrations
+    val database = Database.connectWithFlyway(
+        url = url,
+        user = user,
+        password = password,
+        migration = "com/example/migration"
+    ) ?: throw RuntimeException("Error connect to DB!")
+    // Init service user
+    val userService = UserService(database)
+}
+
+private fun Database.Companion.connectWithFlyway(
+    url: String,
+    user: String,
+    password: String,
+    migration: String
+): Database? {
+    return try {
+        val database = connect(
+            url = url,
+            user = user,
+            password = password,
+        )
+        val flyway = Flyway.configure()
+            .locations(migration)
+            .dataSource(url, user, password)
+            .load()
+        flyway.info()
+        flyway.migrate()
+        database
+    } catch (e: Exception) {
+        null
+    }
 }
 ```
 
@@ -208,16 +208,16 @@ private fun Database.Companion.connectWithFlyway(
 
 `application.yaml`
 ```yaml
-ktor:  
-  development: true  
-  application:  
-    modules:  
-      - com.example.ApplicationKt.module  
-  deployment:  
-    port: 8080  
-postgres:  
-  url: "jdbc:postgresql://localhost:5432/postgres"  
-  user: postgres  
+ktor:
+  development: true
+  application:
+    modules:
+      - com.example.ApplicationKt.module
+  deployment:
+    port: 8080
+postgres:
+  url: "jdbc:postgresql://localhost:5432/postgres"
+  user: postgres
   password: 12345678
 ```
 
@@ -229,16 +229,16 @@ postgres:
 
 `libs.versions.toml`
 ```toml
-[versions]  
+[versions]
 koin-version = "4.0.1"
-  
-[libraries]  
+
+[libraries]
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin-version" }
 ```
 
 `build.gradle.kts`
 ```kotlin
-dependencies {   
+dependencies {
     implementation(libs.koin.core)
 }
 ```
@@ -247,14 +247,14 @@ dependencies {
 
 `Databases.kt`
 ```kotlin
-import org.koin.core.context.GlobalContext.loadKoinModules  
+import org.koin.core.context.GlobalContext.loadKoinModules
 import org.koin.dsl.module as moduleKoin
 
 fun Application.configureDatabases() {
 	//...
-	// Add services DB to DI  
-	loadKoinModules(moduleKoin {  
-	    single { UserService(database) }  
+	// Add services DB to DI
+	loadKoinModules(moduleKoin {
+	    single { UserService(database) }
 	})
 }
 ```
@@ -265,12 +265,12 @@ fun Application.configureDatabases() {
 
 `Application.kt`
 ```kotlin
-fun Application.module() {  
-    val isDevelopment = environment.config.property("ktor.development")  
-        .getString().toBoolean()  
-    startKoin {  
-        printLogger(if (isDevelopment) Level.DEBUG else Level.NONE)  
-    }  
+fun Application.module() {
+    val isDevelopment = environment.config.property("ktor.development")
+        .getString().toBoolean()
+    startKoin {
+        printLogger(if (isDevelopment) Level.DEBUG else Level.NONE)
+    }
     //... 
 }
 ```
@@ -289,7 +289,7 @@ val userService: UserService by inject(UserService::class.java)
 
 `libs.versions.toml`
 ```toml
-[versions]  
+[versions]
 kotlinx-html-version = "0.11.0"
 
 [libraries]
@@ -299,7 +299,7 @@ ktor-server-html-builder = { module = "io.ktor:ktor-server-html-builder", versio
 
 `build.gradle.kts`
 ```kotlin
-dependencies {   
+dependencies {
     implementation(libs.kotlinx.html)
     implementation(libs.ktor.server.html.builder)
 }
@@ -308,15 +308,15 @@ dependencies {
 Я рекомендую начинать методы API с префикса `/api` - это позволяет легко проксировать API на web-сайты, а так же оставить рут для сайта. Страница роутинга принимает следующий вид:
 
 ```kotlin
-fun Application.configureRouting() {  
-    routing {  
-        main()  
-        route("/api") {  
-            notification()  
-        }  
+fun Application.configureRouting() {
+    routing {
+        main()
+        route("/api") {
+            notification()
+        }
     }
-}  
-  
+}
+
 private fun Route.main() {
     get("/") {
         call.respondHtml {
@@ -338,25 +338,25 @@ private fun Route.main() {
         }
     }
 }
-  
-private fun Route.notification() {  
-    get("/notification") {  
-        // service  
-        val userService: UserService by inject(UserService::class.java)  
-        // act  
-        runBlocking {  
-            userService.getAll().forEach {  
-                println(it.idTg)  
-            }  
-        }        
-        // response  
-        call.response.status(  
-            HttpStatusCode(  
-                HttpStatusCode.OK.value,  
-                "Notification completed successfully!"  
-            )  
-        )  
-    }  
+
+private fun Route.notification() {
+    get("/notification") {
+        // service
+        val userService: UserService by inject(UserService::class.java)
+        // act
+        runBlocking {
+            userService.getAll().forEach {
+                println(it.idTg)
+            }
+        }
+        // response
+        call.response.status(
+            HttpStatusCode(
+                HttpStatusCode.OK.value,
+                "Notification completed successfully!"
+            )
+        )
+    }
 }
 ```
 
@@ -388,13 +388,13 @@ private fun Route.notification() {
 
 `application.yaml`
 ```yaml
-telegram:  
+telegram:
   token: "9082348972:SDFwewe234dsfDsdf5dff6345fdgFdfddsS"
 ```
 
 `libs.versions.toml`
 ```toml
-[versions]  
+[versions]
 telegrambots-version = "6.9.7.1"
 
 [libraries]
@@ -403,7 +403,7 @@ telegrambots = { module = "org.telegram:telegrambots", version.ref = "telegrambo
 
 `build.gradle.kts`
 ```kotlin
-dependencies {   
+dependencies { 
     implementation(libs.telegrambots)
 }
 ```
@@ -412,15 +412,15 @@ dependencies {
 
 `AppBot.kt`
 ```kotlin
-class AppBot(token: String) : TelegramLongPollingBot(token) {  
-    override fun getBotUsername(): String {  
-        return "Telegram Bot"  
-    }  
-  
-    override fun onUpdateReceived(update: Update) {  
-        // All bot messages will be sent here.  
+class AppBot(token: String) : TelegramLongPollingBot(token) {
+    override fun getBotUsername(): String {
+        return "Telegram Bot"
     }
-    
+
+    override fun onUpdateReceived(update: Update) {
+        // All bot messages will be sent here.
+    }
+
 	fun sendMessage(idTg: Long, text: String) {
         execute(
             SendMessage.builder()
@@ -448,8 +448,8 @@ fun Application.module() {
     // Start Koin
     startKoin {
         printLogger(if (isDevelopment) Level.DEBUG else Level.NONE)
-		modules(module {  
-		    single { bot }  
+		modules(module {
+		    single { bot }
 		})
     }
     // Init DB
@@ -501,24 +501,24 @@ private fun Route.notification() {
 `AppBot.kt`
 ```kotlin
 //...
-override fun onUpdateReceived(update: Update) {  
-    // Get data  
-    val message = update.message.text  
-    val user = update.message.from  
-    // Start message  
-    if (message == "/start") {  
-        runBlocking {  
-            if (userService.isHash(user.id)) {  
-                sendMessage(user.id, "You are already registered.")  
-            } else {  
-                userService.insert(  
-                    idTg = update.message.from.id,  
-                    name = update.message.from.firstName,  
-                )  
-                sendMessage(user.id, "Welcome!")  
-            }  
-        }  
-    }  
+override fun onUpdateReceived(update: Update) {
+    // Get data
+    val message = update.message.text
+    val user = update.message.from
+    // Start message
+    if (message == "/start") {
+        runBlocking {
+            if (userService.isHash(user.id)) {
+                sendMessage(user.id, "You are already registered.")
+            } else {
+                userService.insert(
+                    idTg = update.message.from.id,
+                    name = update.message.from.firstName,
+                )
+                sendMessage(user.id, "Welcome!")
+            }
+        }
+    }
 }
 //...
 ```
@@ -534,36 +534,36 @@ override fun onUpdateReceived(update: Update) {
 `AppBot.kt`
 ```kotlin
 //...
-override fun onUpdateReceived(update: Update) {  
-    // Get data  
-    val message = update.message.text  
-    val user = update.message.from  
-    // Start message  
-    if (message == "/start") {  
-        runBlocking {  
-            if (userService.isHash(user.id)) {  
-                sendMessage(user.id, "You are already registered.")  
-            } else {  
-                userService.insert(  
-                    idTg = update.message.from.id,  
-                    name = update.message.from.firstName,  
-                )  
-                sendMessage(user.id, "Welcome!")  
-            }  
-        }  
-        return  
-    }  
-    if (message == "/about") {  
-        sendMessage(  
-            user.id,  
-            createHTML().div {  
-                b { +"Telegram Bot\n" }  
-                i { +"v0.0.1" }  
-            }.substringAfter("<div>").substringBefore("</div>")  
-        )  
-        return  
-    }  
-    sendMessage(user.id, "I don't understand you :(")  
+override fun onUpdateReceived(update: Update) {
+    // Get data
+    val message = update.message.text
+    val user = update.message.from
+    // Start message
+    if (message == "/start") {
+        runBlocking {
+            if (userService.isHash(user.id)) {
+                sendMessage(user.id, "You are already registered.")
+            } else {
+                userService.insert(
+                    idTg = update.message.from.id,
+                    name = update.message.from.firstName,
+                )
+                sendMessage(user.id, "Welcome!")
+            }
+        }
+        return
+    }
+    if (message == "/about") {
+        sendMessage(
+            user.id,
+            createHTML().div {
+                b { +"Telegram Bot\n" }
+                i { +"v0.0.1" }
+            }.substringAfter("<div>").substringBefore("</div>")
+        )
+        return
+    }
+    sendMessage(user.id, "I don't understand you :(")
 }
 //...
 ```
@@ -582,7 +582,7 @@ override fun onUpdateReceived(update: Update) {
 
 `libs.versions.toml`
 ```toml
-[versions]  
+[versions]
 picocli-version = "4.7.6"
 
 [libraries]
@@ -592,19 +592,19 @@ picocli = { module = "info.picocli:picocli", version.ref = "picocli-version" }
 `build.gradle.kts`
 ```kotlin
 //...
-application {  
-    mainClass.set("com.example.ApplicationKt")  
-    val isDevelopment: Boolean = project.ext.has("development")  
-    applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")  
-}  
-  
-ktor {  
-    fatJar {  
-        archiveFileName.set("telegram-bot.jar")  
-    }  
+application {
+    mainClass.set("com.example.ApplicationKt")
+    val isDevelopment: Boolean = project.ext.has("development")
+    applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
+}
+
+ktor {
+    fatJar {
+        archiveFileName.set("telegram-bot.jar")
+    }
 }
 //...
-dependencies {   
+dependencies { 
     implementation(libs.picocli)
 }
 //...
@@ -612,39 +612,39 @@ dependencies {
 
 `Application.kt`
 ```kotlin
-@CommandLine.Command(  
-    name = "telegram-bot",  
-    version = ["0.0.1"],  
-    mixinStandardHelpOptions = true,  
-    sortOptions = false,  
-)  
-class AppCLI(private val args: Array<String>) : Callable<Int> {  
-    @CommandLine.Option(  
-        names = ["--notification"],  
-        description = ["Execute the mailing."]  
-    )  
-    var notification: Boolean = false  
-  
-    override fun call(): Int {  
-        try {  
-            if (notification) {  
-                val result = Runtime.getRuntime().exec(  
-                    listOf("curl", "-X", "GET", "http://0.0.0.0:8080/api/notification")  
-                        .toTypedArray()  
-                )  
-                return result.exitValue()  
-            } else {  
-                io.ktor.server.netty.EngineMain.main(args)  
-            }  
-        } catch (ex: Exception) {  
-            return 1  
-        }  
-        return 0  
-    }  
-}  
-  
-fun main(args: Array<String>) {  
-    CommandLine(AppCLI(args)).execute(*args)  
+@CommandLine.Command(
+    name = "telegram-bot",
+    version = ["0.0.1"],
+    mixinStandardHelpOptions = true,
+    sortOptions = false,
+)
+class AppCLI(private val args: Array<String>) : Callable<Int> {
+    @CommandLine.Option(
+        names = ["--notification"],
+        description = ["Execute the mailing."]
+    )
+    var notification: Boolean = false
+
+    override fun call(): Int {
+        try {
+            if (notification) {
+                val result = Runtime.getRuntime().exec(
+                    listOf("curl", "-X", "GET", "http://0.0.0.0:8080/api/notification")
+                        .toTypedArray()
+                )
+                return result.exitValue()
+            } else {
+                io.ktor.server.netty.EngineMain.main(args)
+            }
+        } catch (ex: Exception) {
+            return 1
+        }
+        return 0
+    }
+}
+
+fun main(args: Array<String>) {
+    CommandLine(AppCLI(args)).execute(*args)
 }
 ///...
 ```

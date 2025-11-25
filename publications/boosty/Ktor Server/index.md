@@ -1,3 +1,0 @@
-# Ktor Server
-
-Coming soon...

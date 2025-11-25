@@ -1,3 +1,0 @@
-# OpenSearch
-
-Coming soon...

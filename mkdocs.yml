@@ -23,6 +23,7 @@ nav:
     - Сложность: 'articles/Сложность/index.md'
   - Boosty:
     - Boosty: boosty/index.md
+    - Rust для ОС Аврора.: 'boosty/Rust для ОС Аврора./index.md'
     - Telegram Bot. Простой, для сложных задач.: 'boosty/Telegram Bot. Простой, для сложных задач./index.md'
 
 # Assets

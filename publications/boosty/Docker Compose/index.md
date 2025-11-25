@@ -1,3 +1,0 @@
-# Docker Compose
-
-Coming soon...
