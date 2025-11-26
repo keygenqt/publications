@@ -276,7 +276,7 @@ runtime-manager-tool Control startDebug com.keygenqt.aurora_rs --output-to-conso
 
 #### D-Bus
 
-D-Bus - это системное IPC (межпроцессное взаимодействие) и высокоуровневый API для операционных систем на базе Unix. Многие задачи можно выполнить через этот интерфейс. Для примера мы воспользуемся [Device Info API](https://developer.auroraos.ru/doc/software_development/reference/device_info) для получения модели устройства. 
+D-Bus - это системное IPC (межпроцессное взаимодействие) и высокоуровневый API для операционных систем на базе Unix. Многие задачи можно выполнить через этот интерфейс. Для примера мы воспользуемся [Device Info API](https://developer.auroraos.ru/doc/software_development/reference/device_info) для получения модели устройства.
 
 Для выполнения запроса потребуется добавление прав на доступ к этой информации. В `desktop` файл приложения добавим `DeviceInfo`:
 
@@ -285,7 +285,7 @@ D-Bus - это системное IPC (межпроцессное взаимод
 Permissions=DeviceInfo
 ```
 
-Подключим крейт [dbus](https://crates.io/crates/dbus) (именно его - он точно будет работать, например [zbus](https://crates.io/crates/zbus) работать отказывается - D-Bus на Aurora OS с небольшими с особенностями):
+Подключим крейт [dbus](https://crates.io/crates/dbus) (именно его - он точно будет работать, например [zbus](https://crates.io/crates/zbus) работать отказывается - D-Bus на Aurora OS с небольшими особенностями):
 
 ```toml
 [dependencies]
@@ -833,11 +833,6 @@ fn main() {
 
 ```shell
 .
-├── RPMS
-│   └── aarch64
-│       ├── com.keygenqt.aurora_rs-0.0.1-1.aarch64.rpm
-│       ├── com.keygenqt.aurora_rs-debuginfo-0.0.1-1.aarch64.rpm
-│       └── com.keygenqt.aurora_rs-debugsource-0.0.1-1.aarch64.rpm
 ├── applications
 │   └── com.keygenqt.aurora_rs.desktop
 ├── bin
