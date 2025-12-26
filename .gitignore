@@ -7,3 +7,6 @@
 
 # Mkdocs
 static
+
+# iOS
+.DS_Store
